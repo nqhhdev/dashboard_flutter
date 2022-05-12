@@ -38,7 +38,7 @@ dependencies:
   flutter_screenutil: ^5.5.2
   responsive_framework: ^0.1.7
   google_fonts: ^2.1.0
-  flutter_svg: ^0.22.0
+  flutter_svg: ^1.0.3
   fl_chart: ^0.50.1
   data_table_2: ^2.0.3
   flutter_vector_icons: ^1.0.0
@@ -54,6 +54,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   build_runner: ^2.1.10
+  flutter_gen_runner:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -96,3 +97,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_gen:
+  integrations:
+    flutter_svg: true

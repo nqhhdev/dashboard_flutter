@@ -1,3 +1,4 @@
+import 'package:app_desktop/gen/assets.gen.dart';
 import 'package:app_desktop/presentation/screen/dashboard/dashboard_route.dart';
 import 'package:app_desktop/presentation/screen/documents/documents_route.dart';
 import 'package:app_desktop/presentation/screen/notification/notification_route.dart';
@@ -9,60 +10,56 @@ import 'package:app_desktop/presentation/screen/transaction/transaction_route.da
 import 'package:flutter/material.dart';
 
 enum DrawerScreenType {
-  dashboard,
-  transaction,
+  person,
+  download,
   task,
-  documents,
-  store,
-  notification,
-  profile,
+  images,
+  calendar,
+  fire,
+  clock,
   setting,
 }
 
 extension DrawerEnum on DrawerScreenType {
-  IconData get icon {
+  String get icon {
     switch (this) {
-      case DrawerScreenType.dashboard:
-        return Icons.dashboard;
-      case DrawerScreenType.transaction:
-        return Icons.transcribe;
+      case DrawerScreenType.person:
+        return Assets.icons.person.path;
+      case DrawerScreenType.download:
+        return Assets.icons.download.path;
+
       case DrawerScreenType.task:
-        return Icons.task;
-      case DrawerScreenType.documents:
-        return Icons.document_scanner;
-      case DrawerScreenType.store:
-        return Icons.store;
-      case DrawerScreenType.notification:
-        return Icons.notification_add;
-      case DrawerScreenType.profile:
-        return Icons.person_off_outlined;
+        return Assets.icons.chart.path;
+      case DrawerScreenType.images:
+        return Assets.icons.image.path;
+      case DrawerScreenType.calendar:
+        return Assets.icons.calendar.path;
+      case DrawerScreenType.fire:
+        return Assets.icons.fire.path;
+      case DrawerScreenType.clock:
+        return Assets.icons.clock.path;
       case DrawerScreenType.setting:
-        return Icons.settings;
+        return Assets.icons.settings.path;
     }
   }
 
   String get title {
     switch (this) {
-      case DrawerScreenType.dashboard:
-        return "Dashboard";
-      case DrawerScreenType.transaction:
-        return "Transaction";
+      case DrawerScreenType.person:
+        return "Profile";
+      case DrawerScreenType.download:
+        return "Download";
 
       case DrawerScreenType.task:
         return "Task";
-
-      case DrawerScreenType.documents:
-        return "Documents";
-
-      case DrawerScreenType.store:
-        return "Store";
-
-      case DrawerScreenType.notification:
-        return "Notification";
-
-      case DrawerScreenType.profile:
-        return "Profile";
-
+      case DrawerScreenType.images:
+        return "Images";
+      case DrawerScreenType.calendar:
+        return "Calendar";
+      case DrawerScreenType.fire:
+        return "Fire";
+      case DrawerScreenType.clock:
+        return "Plans";
       case DrawerScreenType.setting:
         return "Settings";
     }
@@ -83,19 +80,19 @@ class DrawerBuilder extends StatelessWidget {
 
   Widget get bodyWidget {
     switch (drawerScreenType) {
-      case DrawerScreenType.dashboard:
+      case DrawerScreenType.person:
         return DashboardRoute.route;
-      case DrawerScreenType.transaction:
+      case DrawerScreenType.download:
         return TransactionRoute.route;
       case DrawerScreenType.task:
         return TaskRoute.route;
-      case DrawerScreenType.documents:
+      case DrawerScreenType.images:
         return DocumentsRoute.route;
-      case DrawerScreenType.store:
+      case DrawerScreenType.calendar:
         return StoreRoute.route;
-      case DrawerScreenType.notification:
+      case DrawerScreenType.fire:
         return NotificationRoute.route;
-      case DrawerScreenType.profile:
+      case DrawerScreenType.clock:
         return ProfileRoute.route;
       case DrawerScreenType.setting:
         return SettingsRoute.route;
@@ -105,25 +102,25 @@ class DrawerBuilder extends StatelessWidget {
   Widget get titleAppbarWidget {
     String titleAppbar = "";
     switch (drawerScreenType) {
-      case DrawerScreenType.dashboard:
+      case DrawerScreenType.person:
         titleAppbar = "Dashboard";
         break;
-      case DrawerScreenType.transaction:
+      case DrawerScreenType.download:
         titleAppbar = "Transaction";
         break;
       case DrawerScreenType.task:
         titleAppbar = "Task";
         break;
-      case DrawerScreenType.documents:
+      case DrawerScreenType.images:
         titleAppbar = "Documents";
         break;
-      case DrawerScreenType.store:
+      case DrawerScreenType.calendar:
         titleAppbar = "Store";
         break;
-      case DrawerScreenType.notification:
+      case DrawerScreenType.clock:
         titleAppbar = "Notification";
         break;
-      case DrawerScreenType.profile:
+      case DrawerScreenType.fire:
         titleAppbar = "Profile";
         break;
       case DrawerScreenType.setting:

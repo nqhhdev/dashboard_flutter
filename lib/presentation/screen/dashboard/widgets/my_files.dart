@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../../config/colors.dart';
 import '../../../../data/my_files.dart';
 
-class MyFilesMore extends StatelessWidget {
-  const MyFilesMore({
+class MyFiles extends StatelessWidget {
+  const MyFiles({
     Key? key,
   }) : super(key: key);
 
@@ -25,9 +25,9 @@ class MyFilesMore extends StatelessWidget {
             ElevatedButton.icon(
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
-                  horizontal: defaultPadding * 1.5,
-                  vertical:
-                      defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+                  horizontal: AppPadding.defaultPadding * 1.5,
+                  vertical: AppPadding.defaultPadding /
+                      (Responsive.isMobile(context) ? 2 : 1),
                 ),
               ),
               onPressed: () {},
@@ -36,11 +36,11 @@ class MyFilesMore extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: defaultPadding),
+        const SizedBox(height: AppPadding.defaultPadding),
         Responsive(
           mobile: FileInfoCardGridView(
             crossAxisCount: size.width < 650 ? 2 : 4,
-            childAspectRatio: size.width < 650 ? 1.3 : 1,
+            childAspectRatio: size.width < 650 && size.width > 350 ? 1.3 : 1,
           ),
           tablet: const FileInfoCardGridView(),
           desktop: FileInfoCardGridView(
@@ -70,8 +70,8 @@ class FileInfoCardGridView extends StatelessWidget {
       itemCount: demoMyFiles.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        crossAxisSpacing: defaultPadding,
-        mainAxisSpacing: defaultPadding,
+        crossAxisSpacing: AppPadding.defaultPadding,
+        mainAxisSpacing: AppPadding.defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),

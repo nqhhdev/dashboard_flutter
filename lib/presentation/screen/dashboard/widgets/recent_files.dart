@@ -13,9 +13,9 @@ class RecentFiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(AppPadding.defaultPadding),
       decoration: const BoxDecoration(
-        color: secondaryColor,
+        color: AppColors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
@@ -28,7 +28,7 @@ class RecentFiles extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: DataTable2(
-              columnSpacing: defaultPadding,
+              columnSpacing: AppPadding.defaultPadding,
               minWidth: 600,
               columns: const [
                 DataColumn(
@@ -65,7 +65,8 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
               width: 30,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppPadding.defaultPadding),
               child: Text(fileInfo.title!),
             ),
           ],

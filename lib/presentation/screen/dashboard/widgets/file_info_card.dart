@@ -1,6 +1,6 @@
+import 'package:app_desktop/config/style.dart';
 import 'package:app_desktop/data/my_files.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../config/colors.dart';
 
@@ -15,62 +15,142 @@ class FileInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(AppPadding.defaultPadding),
       decoration: const BoxDecoration(
-        color: secondaryColor,
+        color: AppColors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: Image.asset(
+                  info.pathImage!,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  SizedBox(
+                    width: 115,
+                    child: Text(
+                      info.name ?? "",
+                      style: AppTextStyle.label13.copyWith(color: Colors.black),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  SizedBox(
+                    width: 115,
+                    child: Text(
+                      info.work ?? "",
+                      style: AppTextStyle.label10.copyWith(color: Colors.black),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              const Icon(Icons.more_horiz, color: Colors.black)
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: const EdgeInsets.all(defaultPadding * 0.75),
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: info.color!.withOpacity(0.1),
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                ),
-                child: SvgPicture.asset(
-                  info.svgSrc!,
-                  color: info.color,
-                ),
+              const Text(
+                "Instagram",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              const Icon(Icons.more_vert, color: Colors.white54)
+              Text(
+                "${info.followIns ?? 0}",
+                style: TextStyle(color: info.color),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ),
-          Text(
-            info.title!,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          const SizedBox(
+            height: 20,
           ),
           ProgressLine(
             color: info.color,
             percentage: info.percentage,
           ),
+          const SizedBox(
+            height: 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "${info.numOfFiles} Files",
-                style: Theme.of(context)
-                    .textTheme
-                    .caption!
-                    .copyWith(color: Colors.white70),
+              const Text(
+                "Facebook",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               Text(
-                info.totalStorage!,
-                style: Theme.of(context)
-                    .textTheme
-                    .caption!
-                    .copyWith(color: Colors.white),
+                "${info.followFB ?? 0}",
+                style: TextStyle(color: info.color),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ProgressLine(
+            color: info.color,
+            percentage: info.percentage,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Twitter",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                "${info.followT ?? 0}",
+                style: TextStyle(color: info.color),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          ProgressLine(
+            color: info.color,
+            percentage: info.percentage,
+          ),
         ],
       ),
     );
@@ -80,7 +160,7 @@ class FileInfoCard extends StatelessWidget {
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
     Key? key,
-    this.color = primaryColor,
+    this.color = AppColors.primaryColor,
     required this.percentage,
   }) : super(key: key);
 

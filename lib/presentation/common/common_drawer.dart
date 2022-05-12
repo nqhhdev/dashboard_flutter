@@ -1,4 +1,5 @@
 import 'package:app_desktop/config/responsive.dart';
+import 'package:app_desktop/gen/assets.gen.dart';
 import 'package:app_desktop/presentation/common/drawer.dart';
 import 'package:app_desktop/presentation/common/list_tile_for_drawer.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +27,15 @@ class CommonDrawer extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       child: Container(
         width: MediaQuery.of(context).size.width / 3,
-        decoration: const BoxDecoration(color: bgColor),
+        // height: MediaQuery.of(context).size.height / 2,
+        decoration: const BoxDecoration(color: AppColors.white),
         child: Padding(
           padding: EdgeInsets.all(paddingAllTotal),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 20),
-              Text(
-                "Menu",
-              ),
+              Assets.icons.logo.svg(),
               InkWell(
                 onTap: () {},
                 child: const SizedBox(),
@@ -69,19 +69,19 @@ class CommonDrawer extends StatelessWidget {
       Navigator.of(context).pop();
     }
     switch (screenType) {
-      case DrawerScreenType.dashboard:
+      case DrawerScreenType.person:
 
-      case DrawerScreenType.transaction:
+      case DrawerScreenType.download:
 
       case DrawerScreenType.task:
 
-      case DrawerScreenType.documents:
+      case DrawerScreenType.images:
 
-      case DrawerScreenType.store:
+      case DrawerScreenType.calendar:
 
-      case DrawerScreenType.notification:
+      case DrawerScreenType.fire:
 
-      case DrawerScreenType.profile:
+      case DrawerScreenType.clock:
 
       case DrawerScreenType.setting:
         setIndex(screenType.index);

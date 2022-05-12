@@ -35,13 +35,13 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: defaultPadding),
+      margin: const EdgeInsets.only(left: AppPadding.defaultPadding),
       padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding,
-        vertical: defaultPadding / 2,
+        horizontal: AppPadding.defaultPadding,
+        vertical: AppPadding.defaultPadding / 2,
       ),
       decoration: BoxDecoration(
-        color: secondaryColor,
+        color: AppColors.secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
@@ -53,7 +53,8 @@ class ProfileCard extends StatelessWidget {
           ),
           if (!Responsive.isMobile(context))
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppPadding.defaultPadding / 2),
               child: Text("Angelina Jolie"),
             ),
           const Icon(Icons.keyboard_arrow_down),
@@ -73,7 +74,7 @@ class SearchField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: "Search",
-        fillColor: secondaryColor,
+        fillColor: AppColors.secondaryColor,
         filled: true,
         border: const OutlineInputBorder(
           borderSide: BorderSide.none,
@@ -82,10 +83,11 @@ class SearchField extends StatelessWidget {
         suffixIcon: InkWell(
           onTap: () {},
           child: Container(
-            padding: const EdgeInsets.all(defaultPadding * 0.75),
-            margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+            padding: const EdgeInsets.all(AppPadding.defaultPadding * 0.75),
+            margin: const EdgeInsets.symmetric(
+                horizontal: AppPadding.defaultPadding / 2),
             decoration: const BoxDecoration(
-              color: primaryColor,
+              color: AppColors.primaryColor,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: SvgPicture.asset("assets/icons/Search.svg"),

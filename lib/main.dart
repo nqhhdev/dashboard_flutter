@@ -42,14 +42,14 @@ class _MyAppState extends State<MyApp> {
               const ResponsiveBreakpoint.resize(850, name: TABLET),
               const ResponsiveBreakpoint.resize(1080, name: DESKTOP),
             ],
-            background: Container(color: bgColor));
+            background: Container(color: AppColors.bgColor));
       },
       title: 'Flutter Demo',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: Colors.grey[750],
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white),
-        canvasColor: secondaryColor,
+            .apply(bodyColor: Colors.black),
+        canvasColor: AppColors.secondaryColor,
       ),
       navigatorKey: NavigationUtil.rootKey,
       debugShowCheckedModeBanner: false,
